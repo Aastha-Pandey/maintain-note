@@ -92,7 +92,7 @@ const TopNavigationBar = () => {
             <input
               disabled
               placeholder='Search'
-              className={`focus:outline-none  bg-gray-100 w-full dark:bg-gray-700 placeholder-gray-600 dark:text-gray-200 dark:placeholder-gray-200`}
+              className={` invisible md:visible lg:visible focus:outline-none  bg-gray-100 w-full dark:bg-gray-700 placeholder-gray-600 dark:text-gray-200 dark:placeholder-gray-200`}
             />
           </div>
         </div>
