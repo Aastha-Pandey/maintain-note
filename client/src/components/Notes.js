@@ -93,7 +93,7 @@ const Notes = () => {
                     {notes &&
                       notes.map((note, noteIndex) => (
                         <>
-                          <div className='border border-gray-200  group rounded-md  hover:shadow-lg   '>
+                          <div className='border border-gray-200  group rounded-md  hover:shadow-lg  w-auto  '>
                             <NoteCard
                               noteIndex={noteIndex}
                               note={note}
