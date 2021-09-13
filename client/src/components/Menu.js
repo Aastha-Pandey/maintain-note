@@ -2,6 +2,8 @@ import React from 'react';
 import { TextAreaContext } from '../App';
 
 const Menu = ({
+  bottomMenuVisible,
+  setBottomMenuVisible,
   menuItems,
   updateNoteStatus,
   ellipsesClicked,
@@ -24,6 +26,7 @@ const Menu = ({
                   onClick={() => {
                     if (item === 'Delete note') {
                       updateNoteStatus('trash');
+                      setBottomMenuVisible(!bottomMenuVisible);
                       setElipsesClicked(!ellipsesClicked);
                     }
                     if (item === 'Change labels' || item === 'Add label') {

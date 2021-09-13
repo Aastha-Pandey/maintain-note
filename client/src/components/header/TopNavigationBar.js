@@ -36,7 +36,7 @@ const TopNavigationBar = () => {
   return (
     <>
       <nav
-        className='bg-white border border-b border-gray-300 w-auto h-16 flex justify-around fixed  inset-x-0 top-0 z-40 dark:bg-gray-900 '
+        className='bg-white border border-b border-gray-300 w-full h-16 flex justify-around fixed  inset-x-0 top-0 z-40 dark:bg-gray-900 '
         onClick={() => {
           setTextAreaClicked(false);
         }}
@@ -72,7 +72,7 @@ const TopNavigationBar = () => {
             Maintain
           </div>
         </div>
-        <div className='flex justify-around w-screen md:w-2/4 lg:w-2/4 px-8 dark:bg-gray-900 '>
+        <div className='flex  justify-around w-screen md:w-2/4 lg:w-2/4 px-8 dark:bg-gray-900 '>
           <div className=' flex my-2 rounded-md bg-gray-100 w-full dark:bg-gray-700 px-2 space-x-4'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -92,7 +92,7 @@ const TopNavigationBar = () => {
             <input
               disabled
               placeholder='Search'
-              className={` invisible md:visible lg:visible focus:outline-none  bg-gray-100 w-full dark:bg-gray-700 placeholder-gray-600 dark:text-gray-200 dark:placeholder-gray-200`}
+              className={` focus:outline-none  bg-gray-100 w-full dark:bg-gray-700 placeholder-gray-600 dark:text-gray-200 dark:placeholder-gray-200`}
             />
           </div>
         </div>

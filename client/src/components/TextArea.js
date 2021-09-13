@@ -64,9 +64,15 @@ const TextArea = ({
               }}
             />
 
-            <div className='ml-6 rounded-full w-20 bg-opacity-40  bg-gray-300 text-center text-xs font-medium text-gray-700 dark:text-gray-200'>
-              {textArealabel}
-            </div>
+            {noteClicked && oneNote ? (
+              <div className='ml-6 rounded-full w-20 bg-opacity-40  bg-gray-300 text-center text-xs font-medium text-gray-700 dark:text-gray-200'>
+                {oneNote[0].label}
+              </div>
+            ) : (
+              <div className='ml-6 rounded-full w-20 bg-opacity-40  bg-gray-300 text-center text-xs font-medium text-gray-700 dark:text-gray-200'>
+                {textArealabel}
+              </div>
+            )}
             {!noteClicked && (
               <div className='flex justify-around'>
                 <button
@@ -90,6 +96,9 @@ const TextArea = ({
                 </button>
                 <button
                   onClick={() => {
+                    setTitle();
+                    setNote();
+                    setTextAreaLabel();
                     setTextClicked(false);
                   }}
                   className=' focus:outline-none text-gray-800 font-semibold dark:text-blue-50 px-2  rounded-md text-sm border hover:shadow-md'
@@ -101,7 +110,7 @@ const TextArea = ({
 
             {noteClicked && <div className='flex justify-center'>{dateString}</div>}
             <BottomNoteCardMenu
-              note={note}
+              onenote={oneNote}
               textClicked={textClicked}
               bottomMenuVisible={bottomMenuVisible}
               setBottomMenuVisible={setBottomMenuVisible}

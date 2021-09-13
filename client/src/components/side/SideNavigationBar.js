@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, useParams, useLocation } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { mutate } from 'swr';
 import { TextAreaContext } from './../../App';
 
@@ -13,7 +13,7 @@ const SideNavigationBar = ({ userid, uniqueLabel }) => {
 
   return (
     <>
-      <div className='invisible md:visible lg:visible h-screen w-1/5 flex flex-col  space-y-4 fixed inset-y-0 left-0 overflow-auto mt-16 bg-white dark:bg-gray-900'>
+      <div className='h-screen w-1/5 flex flex-col  space-y-4 fixed inset-y-0 left-0 overflow-auto mt-16 bg-white dark:bg-gray-900'>
         {tabNames.map((tabName, tabNameIndex) => {
           return (
             <NavLink
@@ -72,9 +72,9 @@ const SideNavigationBar = ({ userid, uniqueLabel }) => {
                     fontWeight: 'bold',
                     backgroundColor: 'rgb(255, 222, 176)',
                   }}
-                  className='flex  p-4 space-x-8   rounded-l rounded-full py-3 px-6 hover:bg-gray-200 dark:hover:bg-gray-700  mr-2'
+                  className='flex  space-x-8   rounded-l rounded-full py-3 px-6 hover:bg-gray-200 dark:hover:bg-gray-700  mr-2'
                 >
-                  {labelSvg}
+                  <div>{labelSvg}</div>
                   <div className='text-gray-800 text-sm font-semibold tracking-wide dark:text-gray-200 dark:hover:bg-gray-700'>
                     {label}
                   </div>

@@ -29,7 +29,7 @@ const LabelMenu = ({
               setShowCreateLabel(false);
             }
 
-            if (menuItems.every((item) => !item.includes(event.target.value))) {
+            if (menuItems.every((item) => item !== null && !item.includes(event.target.value))) {
               setShowCreateLabel(true);
             }
           }}
