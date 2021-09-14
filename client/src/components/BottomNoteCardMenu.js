@@ -9,7 +9,6 @@ import 'tippy.js/dist/tippy.css';
 import 'tippy.js/themes/light.css';
 
 const BottomNoteCardMenu = ({
-  oneNote,
   note,
   status,
   bottomMenuVisible,
@@ -23,7 +22,7 @@ const BottomNoteCardMenu = ({
 
   const menuItems = [
     'Delete note',
-    (note && note.label) || (oneNote && oneNote[0].label) ? 'Change labels' : 'Add label',
+    note && note.label ? 'Change labels' : 'Add label',
     'Add drawing',
     'Make a copy',
     'Show checkboxes',

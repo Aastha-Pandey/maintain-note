@@ -28,7 +28,7 @@ const LabelMenu = ({
             if (event.target.value === '') {
               setShowCreateLabel(false);
             }
-
+            console.log(menuItems);
             if (menuItems.every((item) => item !== null && !item.includes(event.target.value))) {
               setShowCreateLabel(true);
             }
@@ -48,15 +48,16 @@ const LabelMenu = ({
                       value={item}
                       onClick={(event) => {
                         if (event.target.checked) {
-                          if (!note._id) {
+                          if (note && note._id) {
+                            updateNoteLabel(event.target.value);
+                            setElipsesClicked(true);
+                            setAddOrChangeLabelClicked(false);
+                            setBottomMenuVisible(false);
+                            mutate('label');
+                            mutate(status);
+                          } else {
                             setTextAreaLabel(event.target.value);
                           }
-                          updateNoteLabel(event.target.value);
-                          setElipsesClicked(true);
-                          setAddOrChangeLabelClicked(false);
-                          setBottomMenuVisible(false);
-                          mutate('label');
-                          mutate(status);
                         }
                       }}
                     />

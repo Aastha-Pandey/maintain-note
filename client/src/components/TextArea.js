@@ -110,7 +110,7 @@ const TextArea = ({
 
             {noteClicked && <div className='flex justify-center'>{dateString}</div>}
             <BottomNoteCardMenu
-              onenote={oneNote}
+              note={note}
               textClicked={textClicked}
               bottomMenuVisible={bottomMenuVisible}
               setBottomMenuVisible={setBottomMenuVisible}
