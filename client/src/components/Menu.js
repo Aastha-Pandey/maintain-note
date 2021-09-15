@@ -29,6 +29,9 @@ const Menu = ({
               item !== null && (
                 <button
                   onClick={() => {
+                    if (!note) {
+                      setElipsesClicked(!ellipsesClicked);
+                    }
                     if (note && item === 'Delete note') {
                       updateNoteStatus('trash');
                       if (noteClicked) {

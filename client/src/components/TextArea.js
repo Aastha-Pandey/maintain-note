@@ -122,6 +122,7 @@ const TextArea = ({
               uniqueLabel={uniqueLabel}
               setTextAreaLabel={setTextAreaLabel}
               setNoteClicked={setNoteClicked}
+              status={status}
             />
           </div>
         </>
