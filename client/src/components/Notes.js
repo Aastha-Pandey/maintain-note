@@ -51,7 +51,7 @@ const Notes = () => {
 
   React.useEffect(() => {
     if (label) {
-      setUniqueLabel([...new Set(label)]);
+      setUniqueLabel([...new Set(label.filter(Boolean))]);
     }
   }, [label]);
 
@@ -71,6 +71,8 @@ const Notes = () => {
 
             <div className='flex flex-col  z-30 mt-16 h-screen w-4/5 inset-y-0 right-0 absolute bg-white dark:bg-gray-900 '>
               <TextArea
+                setNoteClicked={setNoteClicked}
+                noteClicked={noteClicked}
                 title={title}
                 setTitle={setTitle}
                 note={note}
@@ -132,6 +134,7 @@ const Notes = () => {
                 }}
               ></div>
               <TextArea
+                setNoteClicked={setNoteClicked}
                 noteClicked={noteClicked}
                 status={status}
                 tClicked='true'

@@ -29,7 +29,7 @@ const LabelMenu = ({
               setShowCreateLabel(false);
             }
             console.log(menuItems);
-            if (menuItems.every((item) => item !== null && !item.includes(event.target.value))) {
+            if (menuItems.every((item) => !item.includes(event.target.value))) {
               setShowCreateLabel(true);
             }
           }}
@@ -80,7 +80,11 @@ const LabelMenu = ({
                     border-r-0 border-l-0  border-b-0 text-left 
                     text-sm text-gray-500 dark:text-gray-200 font-medium'
               onClick={() => {
-                updateNoteLabel(suggestions);
+                if (note && note._id) {
+                  updateNoteLabel(suggestions);
+                } else {
+                  setTextAreaLabel(suggestions);
+                }
 
                 setElipsesClicked(false);
                 setAddOrChangeLabelClicked(false);

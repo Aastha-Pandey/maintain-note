@@ -17,6 +17,7 @@ const TextArea = ({
   textArealabel,
   setTextAreaLabel,
   noteClicked,
+  setNoteClicked,
 }) => {
   let location = useLocation();
 
@@ -110,12 +111,17 @@ const TextArea = ({
 
             {noteClicked && <div className='flex justify-center'>{dateString}</div>}
             <BottomNoteCardMenu
+              noteClicked={noteClicked}
+              oneNote={oneNote}
               note={note}
+              setNote={setNote}
+              setTitle={setTitle}
               textClicked={textClicked}
               bottomMenuVisible={bottomMenuVisible}
               setBottomMenuVisible={setBottomMenuVisible}
               uniqueLabel={uniqueLabel}
               setTextAreaLabel={setTextAreaLabel}
+              setNoteClicked={setNoteClicked}
             />
           </div>
         </>

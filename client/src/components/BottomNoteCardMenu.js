@@ -9,6 +9,9 @@ import 'tippy.js/dist/tippy.css';
 import 'tippy.js/themes/light.css';
 
 const BottomNoteCardMenu = ({
+  oneNote,
+  setNote,
+  setTitle,
   note,
   status,
   bottomMenuVisible,
@@ -16,13 +19,15 @@ const BottomNoteCardMenu = ({
   textClicked,
   uniqueLabel,
   setTextAreaLabel,
+  setNoteClicked,
+  noteClicked,
 }) => {
   const [ellipsesClicked, setElipsesClicked] = useState();
   const [addOrChangeLabelClicked, setAddOrChangeLabelClicked] = useState();
 
   const menuItems = [
     'Delete note',
-    note && note.label ? 'Change labels' : 'Add label',
+    (note && note.label) || (oneNote && oneNote[0].label) ? 'Change labels' : 'Add label',
     'Add drawing',
     'Make a copy',
     'Show checkboxes',
@@ -36,10 +41,20 @@ const BottomNoteCardMenu = ({
   };
 
   const updateNoteStatus = (tag) => {
-    axios.put(`/note/${note._id}`, {
-      status: tag,
-    });
-    mutate(`${status}`);
+    if (oneNote) {
+      axios.put(`/note/${oneNote[0]._id}`, {
+        status: tag,
+      });
+      mutate(`${status}`);
+    } else {
+      if (!note) {
+        return;
+      }
+      axios.put(`/note/${note._id}`, {
+        status: tag,
+      });
+      mutate(`${status}`);
+    }
   };
 
   const updateNoteLabel = (label) => {
@@ -296,6 +311,11 @@ const BottomNoteCardMenu = ({
                     />
                   ) : (
                     <Menu
+                      noteClicked={noteClicked}
+                      note={note}
+                      setTitle={setTitle}
+                      setNote={setNote}
+                      setNoteClicked={setNoteClicked}
                       bottomMenuVisible={bottomMenuVisible}
                       setBottomMenuVisible={setBottomMenuVisible}
                       menuItems={menuItems}

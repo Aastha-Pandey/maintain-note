@@ -12,6 +12,11 @@ const Menu = ({
   setAddOrChangeLabelClicked,
   showSettingsMenu,
   setShowSettingsMenu,
+  setNoteClicked,
+  setTitle,
+  setNote,
+  note,
+  noteClicked,
 }) => {
   const { setTheme } = React.useContext(TextAreaContext);
 
@@ -24,8 +29,14 @@ const Menu = ({
               item !== null && (
                 <button
                   onClick={() => {
-                    if (item === 'Delete note') {
+                    if (note && item === 'Delete note') {
                       updateNoteStatus('trash');
+                      if (noteClicked) {
+                        setNoteClicked(false);
+                        setTitle();
+                        setNote();
+                      }
+
                       setBottomMenuVisible(!bottomMenuVisible);
                       setElipsesClicked(!ellipsesClicked);
                     }
